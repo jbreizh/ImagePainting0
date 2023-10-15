@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".LedScreen">
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonBluetooth"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bluetoothd" />
+
+        <Button
+            android:id="@+id/buttonUdp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/udpd" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonFolder"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/folder" />
+
+        <Button
+            android:id="@+id/buttonSettings"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/settings" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/LinearLayout1"
+        android:text="@string/textViewImage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <LinearLayout
+        android:id="@+id/LinearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewImage"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonCutFrom1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/cutfrom" />
+
+        <SeekBar
+            android:id="@+id/seekBarCutFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="1" />
+
+        <Button
+            android:id="@+id/buttonCutFrom2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:background="@drawable/empty" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LinearLayout5"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageViewImage"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/imageView"
+            app:srcCompat="@drawable/pacman" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LinearLayout4"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonCutTo2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:background="@drawable/empty" />
+
+        <SeekBar
+            android:id="@+id/seekBarCutTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="1" />
+        <!--android:rotation="180"/>-->
+
+        <Button
+            android:id="@+id/buttonCutTo1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/cutto" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/LinearLayout6"
+        android:text="@string/textViewOptions"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewOptions"
+        android:gravity="center_vertical">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal">
+
+            <CheckBox
+                android:id="@+id/checkBoxShake"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/radioButtonShake" />
+
+            <CheckBox
+                android:id="@+id/checkBoxRoll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/radioButtonRoll" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal">
+
+
+            <CheckBox
+                android:id="@+id/checkBoxRepeat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="@string/radioButtonRepeat" />
+
+            <CheckBox
+                android:id="@+id/checkBoxBounce"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/radioButtonBounce" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal">
+
+            <CheckBox
+                android:id="@+id/checkBoxInvert"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/radioButtonInvert" />
+
+            <CheckBox
+                android:id="@+id/checkBoxEndOff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/radioButtonEndOff" />
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonLight"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/lighton" />
+
+        <Button
+            android:id="@+id/buttonPlay"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/play" />
+
+        <Button
+            android:id="@+id/buttonPause"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/pause" />
+
+        <Button
+            android:id="@+id/buttonStop"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/stop" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

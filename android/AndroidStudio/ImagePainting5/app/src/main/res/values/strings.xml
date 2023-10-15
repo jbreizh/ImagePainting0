@@ -1,0 +1,41 @@
+<resources>
+    <!--app name-->
+    <string name="app_name">Image Painting</string>
+
+    <!--screen name-->
+    <string name="SplashScreen_name">Splash Screen</string>
+    <string name="LedScreen_name"> Led Screen</string>
+    <string name="SettingsScreen_name"> Settings Screen</string>
+    <string name="UdpScreen_name"> UDP Screen</string>
+    <string name="BluetoothScreen_name"> Bluetooth Screen</string>
+
+    <!--Led screen-->
+    <string name="texViewSplash"> Choose your connection : </string>
+
+    <!--Led screen-->
+    <string name="action_settings"> Settings </string>
+    <string name="imageView"> imageView </string>
+    <string name="radioButtonRepeat"> Repeat </string>
+    <string name="radioButtonBounce"> Bounce </string>
+    <string name="radioButtonInvert"> Invert </string>
+    <string name="radioButtonEndOff"> End Off </string>
+    <string name="radioButtonShake"> Shake Start </string>
+    <string name="radioButtonRoll"> Roll Start </string>
+    <string name="textViewImage"> Image : </string>
+    <string name="textViewOptions"> Options : </string>
+
+    <!--Settings screen-->
+    <string name="textViewSettings1"> Led Strip Settings : </string>
+    <string name="textViewSettings2"> Runtine Settings :</string>
+    <string name="textViewSettings3"> Sensors Settings :</string>
+
+    <!--UDP screen-->
+    <string name="textViewUdp"> Udp : </string>
+    <string name="textViewAddress"> Address : </string>
+    <string name="textViewPort"> Port : </string>
+    <string name="editText"> editText </string>
+
+    <!--Bluetooth screen-->
+    <string name="textViewBluetooth"> Bluetooth : </string>
+
+</resources>
