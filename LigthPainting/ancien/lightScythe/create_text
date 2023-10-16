@@ -1,0 +1,52 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+  text_label="The quick brown fox jumps over the lazy dog"
+else
+  text_label="$*"
+fi
+
+filenamebase="output"
+
+text_height=64
+
+# Allowable colours for imagemagick that map to scythe colours
+# White
+# black
+# blue
+# dodgerblue -- lighter blue
+# green1 -- note, use 'green1' not 'green' due to rgb values.
+# aqua -- equivalent to 'teal' in arduino code
+# red
+# yellow
+# fuchsia -- equivalent to 'violet' in arduino  code
+
+strokecol=blue
+fillcol=yellow
+
+strokewidth=3
+#Fonts
+myfont=~/Library/Fonts/CANDY.ttf
+#myfont=~/Library/Fonts/amsterdam.ttf
+#myfont=./fonts/WINTERLAND.ttf
+
+
+#########################################################################
+echo "Creating image with text: '" $text_label "'"
+convert -background black -fill $fillcol  \
+	   -font $myfont \
+           -strokewidth $strokewidth  -stroke $strokecol    \
+           -pointsize $text_height\
+           -size x$text_height -gravity center \
+	   -gravity center \
+           label:"$text_label"\
+	images/$filenamebase.gif
+
+#display images/$filenamebase.gif &
+#read -p "Press any key to convert image to Scythe Format"
+python ./LightScytheParse.py
+display images/$filenamebase.gif &
+
+read -p "Press any key to transmit to Scythe"
+python ./LightScytheTransmit.py

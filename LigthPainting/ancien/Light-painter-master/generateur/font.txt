@@ -1,0 +1,58 @@
+#include <Adafruit_NeoPixel.h>
+#include <avr/pgmspace.h>
+#define PIN            11  //Pin used for neopixels
+#define NUMPIXELS      60  //How many neopixels are you using?
+
+#define BUTTONPIN  8       //Pin used for control button
+
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
+    
+const byte imageP0 [23400] PROGMEM = { 
+
+int layer;
+int pixel;
+int r;  //Red pixel value
+int g;  //Green pixel value
+int b;  //Blue pixel value
+int rl; //Red pixel location (in array)
+int gl; //Green pixel location (in array)
+int bl; //Blue pixel location (in array)
+int length;
+
+
+
+
+void setup() {
+  pixels.begin();
+  pinMode(2, INPUT);
+  Serial.begin(9600);
+
+
+}
+
+void loop() {
+if (digitalRead(BUTTONPIN) == HIGH){
+ length = 7800;
+   for (layer = 0; layer < (length / NUMPIXELS); layer = layer + 1){  //For each layer in the image
+      for (pixel = 0; pixel < (NUMPIXELS + 1) ; pixel = pixel + 1){      //For each pixel
+          gl = ((layer * (NUMPIXELS * 3)) + (pixel * 3) + 1); //Get location of the current green pixel
+          rl = ((layer * (NUMPIXELS * 3)) + (pixel * 3) + 0); //Get location of the current red pixel
+          bl = ((layer * (NUMPIXELS * 3)) + (pixel * 3) + 2); //Get location of the current blue pixel
+      g = pgm_read_byte (imageP0 + gl);                    //Get current green colour value
+      r = pgm_read_byte (imageP0 + rl);                    //Get current red colour value
+      b = pgm_read_byte (imageP0 + bl);                    //Get current blue colour value
+   pixels.setPixelColor(pixel , r, g, b);              //Set the pixel data
+      }
+      pixels.show();
+      Serial.println("Displaying ");
+      delay(100);
+   }
+    pixels.show();
+}
+for (pixel = 0; pixel < (NUMPIXELS + 1) ; pixel = pixel + 1){     //Turns off all pixels at the end
+        pixels.setPixelColor(pixel , 0, 0, 0);
+      }
+      pixels.show();
+      delay(5000);      //Waits 5 seconds before going back to the start of the program
+      }
